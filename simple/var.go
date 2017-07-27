@@ -27,4 +27,14 @@ func main() {
 	for _, v := range arr1 {
 		println(v);
 	}
+
+	str := "hhh" + " sss";
+	println(str)
+
+	map_demo := make(map[string]string);
+	map_demo["key"] = "val";
+	map_demo["key1"] = "val1";
+	for i, v := range map_demo {
+		println(i, v);
+	}
 }
