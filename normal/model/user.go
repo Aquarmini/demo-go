@@ -1,10 +1,10 @@
 package model
 
 type User struct {
-
+	Id   int;
+	Name string;
 }
 
-func (*User)Output() (r string, err error) {
-	r = "Hi";
-	return;
+func (this *User)SayHello() string {
+	return "Hi " + this.Name;
 }
