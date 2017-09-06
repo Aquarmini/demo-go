@@ -13,9 +13,9 @@ func main() {
 		return
 	}
 
-	TaskMap := make(map[string]func() (string, error))
+	TaskMap := make(map[string]controller.ControllerInterface)
 
-	TaskMap["Say"] = controller.Handle
+	TaskMap["Test"] = &controller.TestController{}
 
 	for i := 1; i < len(os.Args); i++ {
 		params = append(params, os.Args[i])
@@ -23,6 +23,8 @@ func main() {
 
 	fmt.Println(TaskMap)
 
-	result, _ := TaskMap["Say"]()
-	fmt.Println(result)
+	err := TaskMap["Test"].Handle()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 }
